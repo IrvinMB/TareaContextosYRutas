@@ -1,14 +1,16 @@
-import React, { useState } from 'react';
-import {Text, View} from 'react-native';
+import React, { useEffect } from 'react';
+import {View} from 'react-native';
 import { useAlbumes } from '../../contexts/album-context';
 import ListaDeAlbumes from '../../componets/organisms/ListaDeAlbumes';
 import FotoDetails from '../../componets/organisms/FotosDetalle';
-import IFoto from '../../models/IFoto';
-import { IState } from '../../models/IState';
 
 const HomeScreen: React.FC = () => {
-  const selectedAlbmes = useAlbumes();
-return <View>{selectedAlbmes.selectedAlbums ? 
+  const {selectedAlbums,setSelectedAlbums} = useAlbumes();
+  useEffect(() => {
+    setSelectedAlbums(null);
+  }, []);
+  
+return <View>{selectedAlbums ? 
   <FotoDetails/> :  <ListaDeAlbumes />}</View>;
 };
 

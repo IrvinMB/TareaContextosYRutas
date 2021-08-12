@@ -24,9 +24,11 @@ export const FotoProvider: React.FC = ({children}) => {
   const [selectedFoto, setSelectedFoto] = useState<number | null>(null);
 
   const fetchFotosContext = async () => {
+    let idAlbum: number | null;
+    idAlbum=(selectedAlbums==null)?1:selectedAlbums;
     try {
       const fotosDatos = await axios.get(
-        'https://jsonplaceholder.typicode.com/photos?albumId='+selectedAlbums,
+        'https://jsonplaceholder.typicode.com/photos?albumId='+idAlbum,
       );
       setFotoDetail(fotosDatos.data);
     } catch (error) {

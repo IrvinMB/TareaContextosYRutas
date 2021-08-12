@@ -2,6 +2,7 @@ import React from 'react';
 import { SafeAreaView, View } from 'react-native';
 import { AlbumProvider } from './src/contexts/album-context';
 import { FotoProvider } from './src/contexts/foto-context';
+import BottomTabNav from './src/navigators/BottomTabNav';
 // import { PublicacionesProvider } from './src/contexts/publicaciones-context';
 import HomeScreen from './src/screens/HomeScreen';
 // import { Provider } from 'react-redux';
@@ -18,9 +19,12 @@ const App = () => {
  
        <AlbumProvider>
          <FotoProvider>
-            <SafeAreaView>
-              <HomeScreen />
-            </SafeAreaView>
+            {/* <SafeAreaView> */}
+            {/* <HomeScreen />    */}
+                      
+{/*        
+            </SafeAreaView> */}
+            <BottomTabNav />
          </FotoProvider>    
        </AlbumProvider>
 

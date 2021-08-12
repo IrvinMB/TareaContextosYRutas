@@ -9,18 +9,25 @@ import {
   Button,
 } from 'react-native';
 import { useFotos } from '../../../contexts/foto-context';
+import ListaDeAlbumes from '../ListaDeAlbumes';
+import { useNavigation } from '@react-navigation/native';
+
 
 
 
  const FotoDetails = () => {
+  const navigation = useNavigation();
   const {lasFotos,setFotoDetail,setSelectedAlbums, fetchFotosContext} = useFotos();
   useEffect(() => {
     fetchFotosContext();
   }, []);
-
+  const Pagina = () => {
+    setSelectedAlbums(null);
+    navigation.goBack();
+  };
   return (
     <View>
-        <Button  color="#841584" title="< - Back" onPress={() => setSelectedAlbums(null)} />
+        <Button  color="#841584" title="< - Back" onPress={() =>Pagina()} />
       {lasFotos.length > 0 ? (
         <FlatList
           data={lasFotos}
