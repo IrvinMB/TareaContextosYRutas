@@ -23,7 +23,6 @@ import { useNavigation } from '@react-navigation/native';
   }, []);
   const Pagina = () => {
     setSelectedAlbums(null);
-    navigation.goBack();
   };
   return (
     <View>
