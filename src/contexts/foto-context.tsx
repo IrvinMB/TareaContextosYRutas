@@ -22,7 +22,6 @@ export const FotoProvider: React.FC = ({children}) => {
   const [lasFotos, setFotoDetail] = useState<IFoto[]>([]);
   const {selectedAlbums,setSelectedAlbums} = useAlbumes();
   const [selectedFoto, setSelectedFoto] = useState<number | null>(null);
-  //  const [selectedAlbums, setSelectedAlbums] = useState<number | null>(null);
 
   const fetchFotosContext = async () => {
     try {
@@ -36,7 +35,7 @@ export const FotoProvider: React.FC = ({children}) => {
   };
 
   const val = useMemo(()=>{
-      return {lasFotos, setFotoDetail,fetchFotosContext,selectedFoto,setSelectedFoto , selectedAlbums,setSelectedAlbums,};
+      return {lasFotos, setFotoDetail,fetchFotosContext,selectedFoto,setSelectedFoto , selectedAlbums,setSelectedAlbums};
   },[lasFotos, setFotoDetail, fetchFotosContext,selectedFoto, setSelectedFoto,selectedAlbums,setSelectedAlbums ]);
   return <FotosContext.Provider value={val}>{children}</FotosContext.Provider>;
 };

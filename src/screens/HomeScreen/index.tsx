@@ -8,7 +8,6 @@ import { IState } from '../../models/IState';
 
 const HomeScreen: React.FC = () => {
   const selectedAlbmes = useAlbumes();
-   console.log(selectedAlbmes.selectedAlbums);
 return <View>{selectedAlbmes.selectedAlbums ? 
   <FotoDetails/> :  <ListaDeAlbumes />}</View>;
 };
